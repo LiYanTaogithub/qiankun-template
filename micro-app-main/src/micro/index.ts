@@ -45,5 +45,5 @@ addGlobalUncaughtErrorHandler((event: Event | string) => {
   }
 });
 
-// 导出 qiankun 的启动函数
+// 导出 qiankun 的启动函数，在入口文件调用启动函数
 export default start;

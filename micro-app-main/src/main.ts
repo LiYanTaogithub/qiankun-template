@@ -3,9 +3,11 @@ import Antd from "ant-design-vue";
 import VueRouter from "vue-router";
 
 import App from "./App.vue";
-import routes from "./routes";
+import router from "./router";
 import startQiankun from "./micro";
 import "./assets/styles/locale.antd.css";
+
+import "./permission"
 
 Vue.use(VueRouter);
 Vue.use(Antd);
@@ -21,11 +23,11 @@ startQiankun();
  * 注册路由实例
  * 即将开始监听 location 变化，触发路由规则
  */
-const router = new VueRouter({
-  mode: "history",
-  routes,
-});
-
+// const router = new VueRouter({
+//   mode: "history",
+//   routes,
+// });
+// 创建vue实例 将该实例挂载在id为 main-app 的节点上
 new Vue({
   router,
   render: (h) => h(App),

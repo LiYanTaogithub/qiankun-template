@@ -1,10 +1,9 @@
 import config from "@/config";
-
+import shared from "@/shared";
 console.log(config);
 const {
   REACT_MICRO_APP,
   VUE_MICRO_APP,
-  ANGULAR_MICRO_APP,
   STATIC_MICRO_APP,
 } = config;
 
@@ -19,25 +18,23 @@ const apps = [
     name: "ReactMicroApp",
     entry: REACT_MICRO_APP,
     container: "#frame",
-    activeRule: "/react",
+    activeRule: "/main/insuranceinquiry",
+    // 通过 props 将 shared 传递给子应用
+    props: {shared}
   },
   {
-    name: "VueMicroApp",
+    name: "BusinessManageMicroApp",
     entry: VUE_MICRO_APP,
     container: "#frame",
-    activeRule: "/vue",
-  },
-  {
-    name: "AngularMicroApp",
-    entry: ANGULAR_MICRO_APP,
-    container: "#frame",
-    activeRule: "/angular",
+    activeRule: "/main/vue",
+    // 通过 props 将 shared 传递给子应用
+    props: {shared}
   },
   {
     name: "StaticMicroApp",
     entry: STATIC_MICRO_APP,
     container: "#frame",
-    activeRule: "/static",
+    activeRule: "/main/static",
   },
 ];
 

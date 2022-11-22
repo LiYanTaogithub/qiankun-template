@@ -6,7 +6,7 @@ module.exports = {
     config.output.library = `ReactMicroApp`;
     // 将你的 library 暴露为所有的模块定义下都可运行的方式
     config.output.libraryTarget = "umd";
-    // 按需加载相关，设置为 webpackJsonp_VueMicroApp 即可
+    // 按需加载相关，设置为 webpackJsonp_BusinessManageMicroApp 即可
     config.output.jsonpFunction = `webpackJsonp_ReactMicroApp`;
 
     config.resolve.alias = {

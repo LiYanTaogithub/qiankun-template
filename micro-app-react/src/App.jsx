@@ -8,7 +8,7 @@ import List from "./pages/list";
 const menus = [
   {
     key: "react",
-    route: "/",
+    route: "/insuranceinquiry",
     title: "主页",
   },
   {

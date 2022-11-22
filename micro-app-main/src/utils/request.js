@@ -7,7 +7,8 @@ import { reportHttpDuration, sentryHttpError } from '@/utils/sentry'
 
 // create an axios instance
 const service = axios.create({
-  baseURL: process.env.VUE_APP_BASE_API, // url = base url + request url
+  // baseURL: process.env.VUE_APP_BASE_API, // url = base url + request url
+  baseURL: '/insurance-sys-web',
   // withCredentials: true, // send cookies when cross-domain requests
   timeout: 120000, // request timeout
   headers: {
@@ -16,6 +17,7 @@ const service = axios.create({
   },
   withCredentials: true // 允许携带cookie
 })
+console.log('baseURL', process.env.VUE_APP_BASE_API)
 
 // request interceptor
 service.interceptors.request.use(

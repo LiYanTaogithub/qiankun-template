@@ -1,4 +1,4 @@
-import sqSentry from '@shiqiao/sentry'
+// import sqSentry from '@shiqiao/sentry'
 
 const sentryUrl = {
   development: {
@@ -71,12 +71,12 @@ export function setSentryOption () {
 export function reportHttpDuration (info) {
   const options = setHttpConfig(info)
   if (options.duration >= 3) {
-    sqSentry.reportHttpDuration(options)
+    // sqSentry.reportHttpDuration(options)
   }
 }
 
 export function sentryHttpError(info) {
   const options = setHttpConfig(info)
   console.log('sentryOptions', options)
-  sqSentry.reportHttpError(options)
+  // sqSentry.reportHttpError(options)
 }

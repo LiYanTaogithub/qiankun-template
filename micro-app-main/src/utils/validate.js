@@ -34,9 +34,9 @@ export const getCheckCode = vin => {
   if (vin.length > 0 && vin.length != 17) {
     return false
   } else {
-    var vinVal = vin.toUpperCase()
+    let vinVal = vin.toUpperCase()
     // document.getElementById("vin_"+k).value = vinVal;
-    var charToNum = {
+    let charToNum = {
       A: 1,
       B: 2,
       C: 3,
@@ -61,10 +61,10 @@ export const getCheckCode = vin => {
       Y: 8,
       Z: 9
     }
-    var obj = 0
-    var arr = new Array()
-    for (var i = 0; i < vinVal.length; i++) {
-      var temp = vinVal.charAt(i)
+    let obj = 0
+    let arr = new Array()
+    for (let i = 0; i < vinVal.length; i++) {
+      let temp = vinVal.charAt(i)
 
       if (charToNum[temp]) {
         arr[i] = charToNum[temp]
@@ -75,21 +75,21 @@ export const getCheckCode = vin => {
         arr[i] = vinVal.charAt(i)
       }
     }
-    var a1 = 8
-    for (var i = 0; i < 7; i++) {
+    let a1 = 8
+    for (let i = 0; i < 7; i++) {
       obj += Number(arr[i]) * a1
       a1--
     }
 
     obj += Number(arr[7]) * 10
 
-    var a2 = 9
-    for (var i = 9; i < 17; i++) {
+    let a2 = 9
+    for (let i = 9; i < 17; i++) {
       obj += Number(arr[i]) * a2
       a2--
     }
 
-    var result = Number(obj) % 11
+    let result = Number(obj) % 11
     if (parseInt(result) === 10) {
       result = 'X'
     }
@@ -103,26 +103,26 @@ export const getCheckCode = vin => {
   }
 }
 export const spArray = (N, Q) => {
-  var R = []
-  var F
+  let R = []
+  let F
   for (F = 0; F < Q.length; ) {
     R.push(Q.slice(F, (F += N)))
   }
   return R
 }
 export const checkTel = tel => {
-  var phone = /^0\d{2,3}-?\d{7,8}$/
+  let phone = /^0\d{2,3}-?\d{7,8}$/
   // /^((0\d{2,3})-)?(\d{7,8})(-(\d{3,}))?$/;
   return checkPhone(tel) || phone.test(tel)
 }
 //座机
 export const checkTelPhone = tel => {
-  var phone = /^0\d{2,3}-?\d{7,8}$/
+  let phone = /^0\d{2,3}-?\d{7,8}$/
   return phone.test(tel)
 }
 // 手机号校验
 export const checkTelephone = tel => {
-  var pattern = /^((13[0-9])|(14[5-9])|(15([0-3]|[0-9]))|(16[0-6])|(17([0-3]|[0-9]))|(18([0-3]|[0-9]))|(19[8|9]))\d{8}$/
+  let pattern = /^((13[0-9])|(14[5-9])|(15([0-3]|[0-9]))|(16[0-6])|(17([0-3]|[0-9]))|(18([0-3]|[0-9]))|(19[8|9]))\d{8}$/
   if (pattern.test(tel)) {
     return true
   } else {
@@ -141,7 +141,7 @@ export const isIdCardNo = num => {
     return false
   }
   // 验证前2位，城市符合
-  var aCity = {
+  let aCity = {
     11: '北京',
     12: '天津',
     13: '河北',
@@ -185,15 +185,15 @@ export const isIdCardNo = num => {
   // alert('城市:'+aCity[parseInt(num.substr(0,2))]);
 
   // 下面分别分析出生日期和校验位
-  var len, re
+  let len, re
   len = num.length
   if (len == 15) {
     re = new RegExp(/^(\d{6})(\d{2})(\d{2})(\d{2})(\d{3})$/)
-    var arrSplit = num.match(re) // 检查生日日期是否正确
-    var dtmBirth = new Date(
+    let arrSplit = num.match(re) // 检查生日日期是否正确
+    let dtmBirth = new Date(
       '19' + arrSplit[2] + '/' + arrSplit[3] + '/' + arrSplit[4]
     )
-    var bGoodDay
+    let bGoodDay
     bGoodDay =
       dtmBirth.getYear() == Number(arrSplit[2]) &&
       dtmBirth.getMonth() + 1 == Number(arrSplit[3]) &&
@@ -203,7 +203,7 @@ export const isIdCardNo = num => {
       return false
     } else {
       // 将15位身份证转成18位 //校验位按照ISO 7064:1983.MOD 11-2的规定生成，X可以认为是数字10。
-      var arrInt = new Array(
+      let arrInt = new Array(
         7,
         9,
         10,
@@ -222,7 +222,7 @@ export const isIdCardNo = num => {
         4,
         2
       )
-      var arrCh = new Array(
+      let arrCh = new Array(
         '1',
         '0',
         'X',
@@ -235,8 +235,8 @@ export const isIdCardNo = num => {
         '3',
         '2'
       )
-      var nTemp = 0
-      var i
+      let nTemp = 0
+      let i
       num = num.substr(0, 6) + '19' + num.substr(6, num.length - 6)
       for (i = 0; i < 17; i++) {
         nTemp += num.substr(i, 1) * arrInt[i]
@@ -247,9 +247,9 @@ export const isIdCardNo = num => {
   }
   if (len == 18) {
     re = new RegExp(/^(\d{6})(\d{4})(\d{2})(\d{2})(\d{3})([0-9]|X)$/)
-    var arrSplit = num.match(re) // 检查生日日期是否正确
-    var dtmBirth = new Date(arrSplit[2] + '/' + arrSplit[3] + '/' + arrSplit[4])
-    var bGoodDay
+    let arrSplit = num.match(re) // 检查生日日期是否正确
+    let dtmBirth = new Date(arrSplit[2] + '/' + arrSplit[3] + '/' + arrSplit[4])
+    let bGoodDay
     bGoodDay =
       dtmBirth.getFullYear() == Number(arrSplit[2]) &&
       dtmBirth.getMonth() + 1 == Number(arrSplit[3]) &&
@@ -261,8 +261,8 @@ export const isIdCardNo = num => {
       return false
     } else {
       // 检验18位身份证的校验码是否正确。 //校验位按照ISO 7064:1983.MOD 11-2的规定生成，X可以认为是数字10。
-      var valnum
-      var arrInt = new Array(
+      let valnum
+      let arrInt = new Array(
         7,
         9,
         10,
@@ -281,7 +281,7 @@ export const isIdCardNo = num => {
         4,
         2
       )
-      var arrCh = new Array(
+      let arrCh = new Array(
         '1',
         '0',
         'X',
@@ -294,8 +294,8 @@ export const isIdCardNo = num => {
         '3',
         '2'
       )
-      var nTemp = 0
-      var i
+      let nTemp = 0
+      let i
       for (i = 0; i < 17; i++) {
         nTemp += num.substr(i, 1) * arrInt[i]
       }
@@ -323,10 +323,10 @@ export const echarsSubstrValue = value => {
   let rowN = Math.ceil(valLength / maxLength) //类目项需要换行的行数
   if (rowN > 1 && valLength > 5) {
     //如果类目项的文字大于3,
-    for (var i = 0; i < rowN; i++) {
-      var temp = '' //每次截取的字符串
-      var start = i * maxLength
-      var end = start + maxLength
+    for (let i = 0; i < rowN; i++) {
+      let temp = '' //每次截取的字符串
+      let start = i * maxLength
+      let end = start + maxLength
       temp = value.substring(start, end) + '\n'
       ret += temp //凭借最终的字符串
     }
@@ -358,7 +358,6 @@ export const checkTaxCode = num => {
 }
 export const checkEmail = value => {
   let email = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/
-  // let email = /^[A-Za-zd0-9]+([-_.][A-Za-zd]+)*@([A-Za-zd]+[-.])+[A-Za-zd]{2,5}$/;
   if (email.test(value)) {
     return true
   } else {
@@ -396,7 +395,7 @@ export const checkNumberAndPoint = value => {
 }
 
 export const checkNetUrl = str_url => {
-  var strRegex =
+  let strRegex =
     '^((https|http|ftp|rtsp|mms)?://)' +
     "?(([0-9a-z_!~*'().&=+$%-]+: )?[0-9a-z_!~*'().&=+$%-]+@)?" + //ftp的user@
     '(([0-9]{1,3}.){3}[0-9]{1,3}' + // IP形式的URL- 199.194.52.184
@@ -407,7 +406,7 @@ export const checkNetUrl = str_url => {
     '(:[0-9]{1,4})?' + // 端口- :80
     '((/?)|' + // a slash isn't required if there is no file name
     "(/[0-9a-z_!~*'().;?:@&=+$,%#-]+)+/?)$"
-  var re = new RegExp(strRegex)
+  let re = new RegExp(strRegex)
   //re.test()
   if (re.test(str_url)) {
     return true

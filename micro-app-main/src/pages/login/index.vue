@@ -57,7 +57,7 @@
 <script>
 // import { validUsername } from '@/utils/validate'
 // import selectDev from './selectDev'
-// import router from '@/router'
+import shared from '@/shared'
 
 export default {
   name: 'Login',
@@ -81,8 +81,8 @@ export default {
     // }
     return {
       loginForm: {
-        username: '',
-        password: ''
+        username: 'admin',
+        password: 'admin'
       },
       loginRules: {
         username: [
@@ -120,10 +120,11 @@ export default {
           this.loading = true
           this.$store
             .dispatch('Login', this.loginForm)
-            .then(() => {
+            .then(resultData => {
               console.log('=====登录成功')
               this.$store
                 .dispatch('getRouter')
+                // .dispatch('getMenu')
                 .then(resp => {
                   if (resp.obj.length != 0) {
                     console.log('respresp', resp.obj)
@@ -133,17 +134,19 @@ export default {
                       .dispatch('GenerateRoutes', { roles: authList })
                       .then(resp => {
                         console.log('GenerateRoutes', resp)
-                        resp.forEach((item, key) => {
-                          if (!item.hidden && key === 0) {
-                            const _children = item.children
-                            for (let i = 0; i < _children.length; i++) {
-                              if (!_children[i].hidden) {
-                                this.$router.push(_children[i].path)
-                                return false
-                              }
-                            }
-                          }
-                        })
+                        // TODO:将第一个可见路由显示在页面
+                        // resp.forEach((item, key) => {
+                        //   if (!item.hidden && key === 0) {
+                        //     const _children = item.children
+                        //     for (let i = 0; i < _children.length; i++) {
+                        //       if (!_children[i].hidden) {
+                        //         this.$router.push(_children[i].path)
+                        //         return false
+                        //       }
+                        //     }
+                        //   }
+                        // })
+                        this.$router.push('/main')
                         this.loading = false
                       })
                   } else {
@@ -151,7 +154,7 @@ export default {
                     this.loading = false
                   }
                 })
-                .catch(() => {
+                .catch(err => {
                   this.loading = false
                   this.$message.error('权限验证错误,请重新登录')
                   this.$store.dispatch('resetToken').then(() => {

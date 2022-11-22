@@ -1,0 +1,99 @@
+/**
+* 全局scss变量，自定义
+* 须以$theme-开头，便于日后统一管理
+*/
+
+/**黑色-字体颜色**/
+$theme-black: #5a5a5a; //正文字体颜色 应用于绝大多数主体文字
+$theme-black-title: #252525; //标题颜色 应用于模块、表单、表格等标题和部分强调性文字
+$theme-black-other: #a0a0a0; //辅助字体颜色 应用于辅助文字、辅助功能等
+$theme-black-toast: #c8c8c8; //最浅文字颜色 应用于提示语、不可操作的功能等
+
+/**灰色-辅助颜色**/
+$theme-grey-header-background: #f6f7f8; //模块标题背景色 应用于模块标题、表单表头和其他模块内的辅助条块底色
+$theme-grey-body-background: #f0f2f3; //页面主体背景色 应用于页面主体的背景底色
+$theme-grey-table-border: #ebebeb; //表格边线 应用于表单和表格外框、部分模块外框、表格行分隔线
+$theme-grey-input-border: #e1e1e1; //输入框、按钮等边线 应用于未激活的输入框描边、部分按钮描边
+$theme-grey-toast: #c8c8c8; //提示语字体颜色
+
+/**黑色-导航**/
+$theme-black-header: #252a2f; //导航蓝黑 应用于顶部导航、左侧菜单的底色
+$theme-black-header-active: #6b7e95; //导航铁灰 应用于部分弹框顶部
+
+/**蓝色-主色**/
+$theme-blue: #0079da; //主色，按钮、图标、超链接、选中、激活态输入框等均可使用
+$theme-blue-active: #005cc2; //主色的交互状态，如hover、active
+$theme-blue-header-active: #eaf4ff; //部分表格、按钮的hover色
+$theme-blue-header: #cee8ff; //弹出页面头部、部分模块头部的背景色-作废
+
+/**其他颜色**/
+$theme-red: #f35959; //删除按钮delete、警示warning
+$theme-pink: #ffecec; //删除按钮delete、警示warning
+$theme-orange: #f8b332; //提醒信息info
+$theme-yellow: #ffcc22; //黄色，尽量不用
+$theme-green: #0fc491; //成功信息success
+$theme-purple: #be96f9; //紫色，尽量不用
+$theme-deep-purple: #333399;
+$theme-white: #ffffff; //白色
+$theme-blue-btn: #278af2; //按钮
+$theme-blue-btn-hover: #0d71db; //按钮hover态
+$theme-close: #b9b9b9; //关闭状态
+
+// 背景图片地址和大小
+@mixin bis($url) {
+  background-image: url($url);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+//宽高
+@mixin wh($width, $height) {
+  width: $width;
+  height: $height;
+}
+//定位上下左右居中
+@mixin center($width, $height) {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  // transform: translate(-50%, -50%);
+  margin-top: -$height/2;
+  margin-left: -$width/2;
+}
+//transform上下左右居中
+@mixin center1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+//定位上下居中
+@mixin ct {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+//定位左右居中
+@mixin cl {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+//字体大小，行高，字体
+@mixin font($size, $line-height, $family: 'Microsoft YaHei') {
+  font: #{$size}/#{$line-height} 'Microsoft Yahei';
+}
+//字体大小，颜色
+@mixin sc($size, $color) {
+  font-size: $size;
+  color: $color;
+}
+//字体加粗
+@mixin bold($family: 'fontBold') {
+  font-family: $family;
+}
+//flex 布局和 子元素 对其方式
+@mixin fj($type: space-between) {
+  display: flex;
+  justify-content: $type;
+}

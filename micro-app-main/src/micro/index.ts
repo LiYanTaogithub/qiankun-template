@@ -20,6 +20,7 @@ registerMicroApps(apps, {
   // qiankun 生命周期钩子 - 加载前
   beforeLoad: (app: any) => {
     // 加载子应用前，加载进度条
+    console.log('开始加载子应用')
     NProgress.start();
     console.log("before load", app.name);
     return Promise.resolve();

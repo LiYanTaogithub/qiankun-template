@@ -1,0 +1,50 @@
+.dashboard {
+  &-container {
+    .reset-header {
+      margin-bottom: 8px;
+
+      ::v-deep .el-card__header {
+        padding: 0 20px;
+
+        .el-form-item__content {
+          line-height: 46px;
+          margin-top: 4px
+        }
+      }
+    }
+
+    .search-header .dynamic_search_component {
+      ::v-deep .el-row:first-child {
+        border-bottom: none !important;
+      }
+    }
+
+    ::v-deep .el-checkbox__inner {
+      border: 1px solid #303133;
+    }
+
+    .operate-btn {
+      ::v-deep .el-button {
+        padding: 2px 2px;
+      }
+
+      i {
+        font-size: 16px;
+        line-height: 22px;
+        margin: 0 5px;
+      }
+    }
+
+    .upload-demo {
+      display: inline-block;
+    }
+  }
+}
+
+::v-deep .el-card__header {
+  border-bottom: 0;
+}
+
+::v-deep .el-link {
+  font-weight: normal;
+}

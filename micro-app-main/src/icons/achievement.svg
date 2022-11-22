@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="75px" height="134px" viewBox="0 0 75 134" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>业绩总览icon1</title>
+    <defs>
+        <linearGradient x1="50%" y1="-30.4200805%" x2="50%" y2="130.123245%" id="linearGradient-1">
+            <stop stop-color="#FFBA91" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#FFA56F" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.18">
+        <g id="boss看板" transform="translate(-386.000000, -165.000000)" fill="url(#linearGradient-1)" fill-rule="nonzero">
+            <g id="编组-2" transform="translate(226.000000, 99.000000)">
+                <g id="编组-2备份-5" transform="translate(24.000000, 66.000000)">
+                    <g id="编组-5" transform="translate(136.000000, 0.000000)">
+                        <path d="M50.5,25 C65,33.5368751 79.5,40.366375 94,45.4721875 C94,78.9671876 79.5,101.141313 50.5,112 C21.5,101.141313 7,78.9671875 7,45.4721875 C21.5,40.3609375 36,33.5368749 50.5,25 Z M66.6608987,55 L49.4004881,73.1332743 L38.6621067,63.4891388 L31,72.9095067 L50.0305158,90 L75,63.762562 L66.6608987,55 Z" id="形状结合"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
